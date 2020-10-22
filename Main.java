@@ -7,22 +7,20 @@ package DynamicList;
 public class Main {
     public static void main(String[] args) {
         DynamicList list = new DynamicList();
-        list.Add("haha");
-        list.Add("hoho");
-        list.Add("hihi");
-        list.Add("oho");
-        list.Add("aha");
-        list.Add("e");
-        list.Add("o");
-        list.Add("a");
-        list.Add("hihe");
-        list.Print();
 
-        list.Remove("hoho");
-        list.Print();
+        int i;
+        for (i=0; i<101; i++) {
+            list.Add(Integer.toString(i));
+        }
 
-        list.Remove("e");
+        for (i=25; i<76; i++) {
+            list.Remove(Integer.toString(i));
+        }
+
         list.Print();
-        list.Find("hihe");
+        list.Find("76");
+        list.Find("100");
+        list.Find("0");
+        list.Find("a");
     }
 }
