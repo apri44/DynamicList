@@ -19,7 +19,7 @@ public class DynamicList {
             if (Find(param) == -1) {
                 this.array[index] = param;
                 this.index++; 
-                System.out.println(param + " was added.");
+                //System.out.println(param + " was added.");
                 String[] temp = new String[this.array.length + 1];
                 
                 if (this.index + 1 == this.array.length) {
@@ -42,18 +42,19 @@ public class DynamicList {
         try {
             int i;
             for (i = 0; i < this.index; i++) {
-                if (this.array[i] == param) {
+                if (this.array[i].equals(param)) {
                     this.array[i] = "##";
 
                     this.Update();
 
-                    System.out.println(param + " was removed");
+                    //System.out.println(param + " was removed");
                     return;
                 }
             }
         }
+
         catch(Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.out.println("Given parameter was not found");
             return;
         }
@@ -63,12 +64,14 @@ public class DynamicList {
         if (this.index != 0) {
             int i;
             for (i=0; i <= this.index; i++) {
-                if (this.array[i] == param) {
-                    System.out.println("Given paramater was found at index " + i + ".");
-                    return i;
-                } 
-            }
 
+                try {
+                    if (this.array[i].equals(param)) {
+                        System.out.println("Given paramater was found at index " + i + ".");
+                        return i;
+                    } 
+                } catch(NullPointerException e) {}
+            }
             return -1;
         }
         return -1;
